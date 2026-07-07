@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PRO KIDZ ARENA ADMIN</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+#login{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.login-box{
+
+    background:#1d1d1d;
+    padding:30px;
+    border-radius:12px;
+    width:350px;
+    text-align:center;
+    box-shadow:0 0 20px red;
+}
+
+input{
+
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:none;
+    border-radius:8px;
+    box-sizing:border-box;
+}
+
+button{
+
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    border:none;
+    background:red;
+    color:white;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+
+    background:darkred;
+
+}
+
+#dashboard{
+
+    display:none;
+    padding:25px;
+
+}
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+
+}
+
+th,td{
+
+    border:1px solid #444;
+    padding:12px;
+    text-align:center;
+
+}
+
+th{
+
+    background:#b30000;
+
+}
+
+tr:nth-child(even){
+
+    background:#1c1c1c;
+
+}
+
+img{
+
+    width:80px;
+    border-radius:6px;
+
+}
+
+.search{
+
+    width:300px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="login">
+
+<div class="login-box">
+
+<h2>⚔️ PRO KIDZ ADMIN</h2>
+
+<input
+id="password"
+type="password"
+placeholder="Enter Password">
+
+<button onclick="login()">
+
+Login
+
+</button>
+
+</div>
+
+</div>
+
+<div id="dashboard">
+
+<h1>⚔️ PRO KIDZ ARENA ADMIN PANEL</h1>
+
+<input
+class="search"
+id="search"
+placeholder="Search..."
+onkeyup="searchTable()">
+
+<table id="table">
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+<th>UID</th>
+<th>Name</th>
+<th>WhatsApp</th>
+<th>Transaction</th>
+<th>Screenshot</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="tbody">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script>
+
+const PASSWORD="SHIELD";
+
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbzLry439kZohQyoUbQSTeEPH_xpr8wsvVMP4ZR6j5kcxU00Igl6yqymQiZDM_3WbfDJ/exec";
+
+function login(){
+
+let pass=document.getElementById("password").value;
+
+if(pass===PASSWORD){
+
+document.getElementById("login").style.display="none";
+
+document.getElementById("dashboard").style.display="block";
+
+loadData();
+    
+    }else{
+
+alert("Wrong Password");
+
+}
+
+}
+    async function updateStatus(uid, status) {
+
+    try {
+
+        const form = new FormData();
+
+        form.append("action", "update");
+        form.append("uid", uid);
+        form.append("status", status);
+
+        const response = await fetch(SCRIPT_URL, {
+            method: "POST",
+            body: form
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+
+            alert("Status Updated!");
+
+            loadData();
+
+        } else {
+
+            alert("Update Failed");
+
+        }
+
+    } catch (err) {
+
+        console.error(err);
+        alert(err);
+
+    }
+
+}
+
+async function loadData(){
+
+    try {
+        
+        const response = await fetch(SCRIPT_URL + "?t=" + Date.now());
+        const data = await response.json();
+
+        console.log(data);
+
+        let html = "";
+
+        data.forEach(row => {
+
+            html += `
+            <tr>
+                <td>${row[0]}</td>
+                <td>${row[1]}</td>
+                <td>${row[2]}</td>
+                <td>${row[3]}</td>
+                <td>${row[4]}</td>
+                <td>
+                    <a href="${row[5]}" target="_blank">View</a>
+                </td>
+               <td>${row[6]}</td>
+
+<td>
+<button onclick="updateStatus('${row[1]}','Approved')">
+✅ Accept
+</button>
+
+<button onclick="updateStatus('${row[1]}','Rejected')">
+❌ Reject
+</button>
+</td>
+            </tr>
+            `;
+        });
+
+        document.getElementById("tbody").innerHTML = html;
+
+    } catch(err) {
+
+        console.error(err);
+        alert(err);
+
+    }
+}
+
+function searchTable(){
+
+let input=document.getElementById("search").value.toLowerCase();
+
+let rows=document.querySelectorAll("#tbody tr");
+
+rows.forEach(r=>{
+
+r.style.display=r.innerText.toLowerCase().includes(input)
+
+?
+
+""
+
+:
+
+"none";
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

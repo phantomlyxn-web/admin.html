@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>⚔️ PRO KIDZ ARENA .PK 🇵🇰</title>
+<style>
+    .spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+    #message-popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:10000;
+}
+
+#message-popup .popup-box{
+    width:400px;
+    max-width:90%;
+    background:#151515;
+    border:2px solid red;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 0 25px red;
+}
+
+#message-popup button{
+    margin-top:20px;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.error{
+    border: 2px solid red !important;
+    box-shadow: 0 0 10px red;
+}
+body {
+    background-image: url("https://i.ibb.co/PZ92Xqfq/heroic-png.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+      background: rgba(0, 0, 0, 0.55);
+    padding: 20px;
+    min-height: 100vh;
+
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+#loading-screen{   
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://i.ibb.co/PZ92Xqfq/heroic-png.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+/* Main Title */
+h1 {
+    font-size: 38px;
+    text-align: center;
+    text-shadow: 2px 2px 8px black;
+    margin-bottom: 15px;
+}
+
+/* Section Titles */
+h2 {
+    font-size: 30px;
+    text-shadow: 2px 2px 6px black;
+    margin-top: 25px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 22px;
+    line-height: 1.7;
+    text-shadow: 2px 2px 6px black;
+}
+
+/* Bold Text */
+b {
+    color: #FFD700;
+}
+
+/* Line */
+hr {
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Button */
+button {
+
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkred;
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
+/* Payment Popup */
+
+#payment-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.popup-box{
+
+    width: 420px;
+    max-width: 90%;
+
+    background: #151515;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    border: 2px solid red;
+
+    box-shadow: 0 0 20px red;
+
+    text-align: center;
+}
+
+.popup-box input{
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin: 10px 0;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    box-sizing: border-box;
+}
+
+.popup-box input[type="file"]{
+
+    color: white;
+}
+
+.close-btn{
+
+    float: right;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    color: white;
+}
+
+.close-btn:hover{
+
+    color: red;
+}
+</style>
+</head>
+
+<body>
+      <!-- Loading Screen -->
+    <div id="loading-screen">
+
+        <h1>⚔️ PRO KIDZ ARENA .PK 🇵🇰</h1>
+
+        <p>Welcome Champion!</p>
+</div>
+
+    <!-- Main Website -->
+    <div id="main-page">
+
+        <h1>My Website</h1>
+
+    </div>
+   
+
+    <script>
+    setTimeout(function () {
+
+    document.getElementById("loading-screen").style.opacity = "0";
+
+    document.querySelector(".container").style.opacity = "1";
+
+    setTimeout(function () {
+        document.getElementById("loading-screen").style.display = "none";
+    }, 800);
+
+}, 2000);
+    </script>
+
+     
+    <div class="container">
+    <!-- Website Title -->
+    <h1>⚔️ PRO KIDZ ARENA .PK 🇵🇰</h1>
+
+
+    <!-- Welcome -->
+    <h2>Welcome to Pakistan's Free Fire Esports Community</h2>
+
+    <hr>
+
+    <!-- Tournament Details -->
+    <h2>🏆 Tournament #1</h2>
+
+    <p><b>Game:</b> Free Fire</p>
+
+    <p><b>Entry Fee:</b> Rs.100</p>
+
+    <p><b>Prize Pool:</b> Rs.5000</p>
+
+    <p><b>Date:</b> 20 July 2026</p>
+
+    <p><b>Time:</b> 8:00 PM</p>
+
+    <hr>
+
+    <!-- Rules -->
+    <h2>📜 Rules</h2>
+
+    <p>• No Hacks Allowed</p>
+
+    <p>• Respect All Players</p>
+
+    <p>• Room ID Will Be Shared Before Match</p>
+
+    <p>• Breaking Rules = Disqualification</p>
+
+    <hr>
+
+    <!-- Payment -->
+    <h2>💳 JazzCash Payment</h2>
+
+    <p>JazzCash Number:</p>
+
+    <p>03XX-XXXXXXX</p>
+
+    <p>Send the entry fee and keep your transaction ID.</p>
+
+   <button onclick="openPopup()">Submit Payment</button>
+
+    <hr>
+
+    <!-- WhatsApp -->
+    <h2>📱 WhatsApp Group</h2>
+
+    <p>After payment verification, you will receive the private WhatsApp group link.</p>
+    </div>
+
+  <!-- Payment Popup -->
+<div id="payment-popup">
+
+   <div class="popup-box" id="popup-content">
+
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+
+        <h2>💳 Payment Verification</h2>
+
+        <p><b>JazzCash Number</b></p>
+
+        <p>03XX-XXXXXXX</p>
+
+        <p>
+            Send Rs.100 to the number above using your JazzCash App.
+            After sending, fill the form below.
+        </p>
+<input type="text" id="uid" placeholder="Free Fire UID">
+
+<input type="text" id="gamename" placeholder="Game Name">
+
+<input type="text" id="whatsapp" placeholder="WhatsApp Number">
+
+<input type="text" id="transaction" placeholder="Transaction ID">
+
+<input type="file" id="screenshot">
+
+       <button onclick="submitPayment()">Submit</button>
+
+    </div>
+
+</div>
+<script>
+
+let originalPopup = "";
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    originalPopup = document.getElementById("popup-content").innerHTML;
+
+});
+
+function openPopup(){
+
+    document.getElementById("popup-content").innerHTML = originalPopup;
+
+    document.getElementById("payment-popup").style.display = "flex";
+
+}
+
+function closePopup(){
+
+    document.getElementById("payment-popup").style.display = "none";
+
+}
+    async function uploadToCloudinary(file) {
+
+    const formData = new FormData();
+
+    formData.append("file", file);
+    formData.append("upload_preset", "tournament_uploads");
+
+    const response = await fetch(
+        "https://api.cloudinary.com/v1_1/fyc69dc1/image/upload",
+        {
+            method: "POST",
+            body: formData
+        }
+    );
+
+    const data = await response.json();
+
+    if (!data.secure_url) {
+        throw new Error("Upload failed");
+    }
+
+    return data.secure_url;
+}
+async function sendToGoogleSheet(uid, gamename, whatsapp, transaction, screenshotUrl){
+
+    const formData = new FormData();
+
+    formData.append("uid", uid);
+    formData.append("gamename", gamename);
+    formData.append("whatsapp", whatsapp);
+    formData.append("transaction", transaction);
+    formData.append("screenshot", screenshotUrl);
+
+    const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbzLry439kZohQyoUbQSTeEPH_xpr8wsvVMP4ZR6j5kcxU00Igl6yqymQiZDM_3WbfDJ/exec",
+        {
+            method: "POST",
+            body: formData
+        }
+    );
+
+    return await response.json();
+}
+    function showMessage(title, text){
+
+    document.getElementById("message-title").innerHTML = title;
+    document.getElementById("message-text").innerHTML = text;
+
+    document.getElementById("message-popup").style.display = "flex";
+
+}
+
+function closeMessagePopup(){
+
+    document.getElementById("message-popup").style.display = "none";
+
+}
+async function submitPayment(){
+
+    let uid = document.getElementById("uid");
+    let game = document.getElementById("gamename");
+    let whatsapp = document.getElementById("whatsapp");
+    let transaction = document.getElementById("transaction");
+    let screenshot = document.getElementById("screenshot");
+
+    // Remove previous red borders
+    uid.classList.remove("error");
+    game.classList.remove("error");
+    whatsapp.classList.remove("error");
+    transaction.classList.remove("error");
+    screenshot.classList.remove("error");
+
+    let valid = true;
+
+    if(uid.value.trim() === ""){
+        uid.classList.add("error");
+        valid = false;
+    }
+
+    if(game.value.trim() === ""){
+        game.classList.add("error");
+        valid = false;
+    }
+
+    if(whatsapp.value.trim() === ""){
+        whatsapp.classList.add("error");
+        valid = false;
+    }
+
+    if(transaction.value.trim() === ""){
+        transaction.classList.add("error");
+        valid = false;
+    }
+
+    if(screenshot.files.length === 0){
+        screenshot.classList.add("error");
+        valid = false;
+    }
+
+    if(!valid){
+    return;
+}
+
+     const submitButton = document.querySelector("#popup-content button");
+try {
+
+    submitButton.disabled = true;
+    submitButton.innerHTML = `
+    <span class="spinner"></span>
+    Uploading...
+`;
+
+    const screenshotUrl = await uploadToCloudinary(screenshot.files[0]);
+
+    const result = await sendToGoogleSheet(
+        uid.value,
+        game.value,
+        whatsapp.value,
+        transaction.value,
+        screenshotUrl
+    );
+
+    console.log(result);
+
+    submitButton.disabled = false;
+    submitButton.innerText = "Submit";
+
+  if(result.result == "duplicate"){
+
+    submitButton.disabled = false;
+    submitButton.innerHTML = "Submit";
+      
+showMessage(
+    "❌ Registration Failed",
+    "This Transaction ID has already been used. Please check your payment receipt or contact support if you believe this is a mistake."
+);
+
+}
+else if(result.result == "success"){
+
+    document.getElementById("popup-content").innerHTML = `
+        <h2>✅ Thank You!</h2>
+
+        <p>Your payment has been received for verification.</p>
+
+        <p>Our team will verify your payment as soon as possible.</p>
+
+        <p><strong>After successful verification, you'll receive the WhatsApp group link on the WhatsApp number you provided.</strong></p>
+
+        <br>
+
+        <button onclick="closePopup()">Close</button>
+    `;
+
+}
+else{
+
+    submitButton.disabled = false;
+    submitButton.innerHTML = "Submit";
+
+   showMessage(
+    "⚠️ Error",
+    "Unable to save your registration. Please try again in a few moments."
+);
+
+}
+
+} catch(err) {
+
+    console.error(err);
+
+    submitButton.disabled = false;
+    submitButton.innerHTML = "Submit";
+
+   showMessage(
+    "📷 Upload Failed",
+    "Your screenshot could not be uploaded. Please check your internet connection and try again."
+);
+
+}
+
+}
+</script>
+    <div id="message-popup" style="display:none;">
+  <div class="popup-box">
+    <h2 id="message-title"></h2>
+    <p id="message-text"></p>
+    <button onclick="closeMessagePopup()">OK</button>
+  </div>
+</div>
+</body>
+
+</html>
