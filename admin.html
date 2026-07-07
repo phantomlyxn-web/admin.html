@@ -240,12 +240,17 @@ async function approvePlayer(uid, whatsapp, name) {
 
     await updateStatus(uid, "Approved");
 
-    let phone = whatsapp.replace(/\D/g, "");
+   let phone = whatsapp.replace(/\D/g, "");
 
-    // Pakistan numbers: 03xxxxxxxxx → 923xxxxxxxxx
-    if (phone.startsWith("03")) {
-        phone = "92" + phone.substring(1);
-    }
+// If number starts with 0 (0312...)
+if (phone.startsWith("0")) {
+    phone = "92" + phone.substring(1);
+}
+
+// If Google Sheets removed the 0 (312...)
+else if (phone.length === 10 && phone.startsWith("3")) {
+    phone = "92" + phone;
+}
 
     const message =
 `🏆 PRO KIDZ ARENA
