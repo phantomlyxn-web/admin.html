@@ -234,6 +234,37 @@ alert("Wrong Password");
     }
 
 }
+    const GROUP_LINK = "https://chat.whatsapp.com/YOUR_GROUP_INVITE_LINK";
+
+async function approvePlayer(uid, whatsapp, name) {
+
+    await updateStatus(uid, "Approved");
+
+    let phone = whatsapp.replace(/\D/g, "");
+
+    // Pakistan numbers: 03xxxxxxxxx → 923xxxxxxxxx
+    if (phone.startsWith("03")) {
+        phone = "92" + phone.substring(1);
+    }
+
+    const message =
+`🏆 PRO KIDZ ARENA
+
+Congratulations ${name}! 🎉
+
+Your payment has been verified successfully.
+
+Join the tournament WhatsApp group below:
+
+${GROUP_LINK}
+
+See you in the tournament! ⚔️`;
+
+    window.open(
+        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+        "_blank"
+    );
+}
 
 async function loadData(){
 
